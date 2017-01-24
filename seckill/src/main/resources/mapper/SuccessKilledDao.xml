@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper>
+    <insert id="insertSuccessKilled">
+        <!-- 主键冲突，报错 -->
+        insert ingore into success_killed(seckill_id, user_phone)
+        values (#{seckillId}.#{userPhone})
+    </insert>
+
+    <select id="queryByIdWithSeckill" resultType="SuccessKilled">
+        <!-- 根据Id查询SuccessKilled并携带Seckill产品对象实体 -->
+        <!-- 如果告诉Mybatis把结果映射到SuccessKilled同时映射Seckill属性 -->
+        <!-- 可以自由控制SQL -->
+        select
+      		sk.seckill_id,
+    		sk.user_phone,
+    		sk.create_time,
+    		sk.state,
+    		sk.seckill_id "sckill.seckill_id",
+    		s.name "sckill.name",
+    		s.number "sckill.number",
+    		s.start_time "sckill.start_time",
+    		s.end_time "sckill.end_time",
+    		s.create_time "sckill.create_time"
+        from success_killed sk
+        inner join seckill s on sk.seckill_id = s.seckill_id
+        where sk.seckill_id = #{seckillId}
+    </select>
+</mapper>
