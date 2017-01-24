@@ -57,7 +57,7 @@ public class SeckillDaoTest {
     public void reduceNumber() throws Exception {
         Date killTime = new Date();
         int updateCount = seckillDao.reduceNumber(1000L, killTime);
-        System.out.println("UpdateCount:" + updateCount);
+        System.out.println("updateCount:" + updateCount);
     }
 
 
