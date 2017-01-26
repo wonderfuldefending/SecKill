@@ -33,6 +33,7 @@ import java.util.List;
  */
 @Service
 public class SeckillServiceImpl implements SeckillService {
+
     private Logger logger = LoggerFactory.getLogger(this.getClass());
     //注入Service依赖
     @Autowired
@@ -44,7 +45,7 @@ public class SeckillServiceImpl implements SeckillService {
     private final String slat = "fjlsflks09432(&*(*)_)(lkjs;";
 
     public List<Seckill> getSeckillList() {
-        return seckillDao.queryAll(0,4);
+        return seckillDao.queryAll(0,5);
     }
 
     public Seckill getById(long seckillId) {

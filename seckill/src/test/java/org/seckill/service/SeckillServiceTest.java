@@ -61,7 +61,7 @@ public class SeckillServiceTest {
         Exposer exposer = seckillService.exportSeckillUrl(id);
         if (exposer.isExposed()){
             logger.info("exposer={}", exposer);
-            long userPhone = 13612345678L;
+            long userPhone = 13312345678L;
             String md5 = "38542340b1b1d58414cce301affac0fd";
             try {
                 SeckillExecution seckillExecution = seckillService.executeSeckill(id, userPhone, md5);
@@ -74,7 +74,6 @@ public class SeckillServiceTest {
         }else {
             //秒杀未开启
             logger.warn("exposer={}", exposer);
-
         }
     }
 
