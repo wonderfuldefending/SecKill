@@ -35,7 +35,7 @@ public class SeckillController {
         List<Seckill> list = seckillService.getSeckillList();
         model.addAttribute("list", list);
         //list.jsp + model = ModelAndView
-        return "list"; //WEB-INF/jsp/"list".jsp
+        return "list"; // /WEB-INF/jsp/"list".jsp
     }
 
     //Ajax json
@@ -54,8 +54,8 @@ public class SeckillController {
 
 
     @RequestMapping(value = "/{seckillId}/exposer",
-            method = RequestMethod.POST,
-            produces = {"application/json;charset=UTF-8"})
+                    method = RequestMethod.POST,
+                    produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public SeckillResult<Exposer> exposer(Long seckillId){
         SeckillResult<Exposer> result;
