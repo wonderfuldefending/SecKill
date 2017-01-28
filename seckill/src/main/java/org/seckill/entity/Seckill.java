@@ -8,8 +8,8 @@ import java.util.Date;
 public class Seckill {
     private long seckillId;
     private String name;
-    private  int number;
-    private  Date startTime;
+    private int number;
+    private Date startTime;
     private Date endTime;
     private Date createTime;
 
@@ -23,6 +23,7 @@ public class Seckill {
                 ", endTime=" + endTime +
                 ", createTime=" + createTime +
                 '}';
+
     }
 
     public long getSeckillId() {
