@@ -59,7 +59,7 @@ var seckill = {
                     seckill.countdown(seckillId, now, start, end);
                 }
             } else {
-                Console.log();
+                Console.log('秒杀地址错误');
             }
         });
     },
@@ -110,8 +110,7 @@ var seckill = {
                         $('#killPhoneMessage').hide().html('<label class="label label-danger">电话号码错误！</label>').show(300);
                     }
                 });
-            }
-            ;
+            };
             var seckillId = param['seckillId'];
             var startTime = param['startTime'];
             var endTime = param['endTime'];
