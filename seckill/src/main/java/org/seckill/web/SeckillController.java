@@ -83,7 +83,9 @@ public class SeckillController {
         //SeckillResult<SeckillExecution> result;
         SeckillExecution seckillExecution;
         try {
-            seckillExecution = seckillService.executeSeckill(seckillId, phone, md5);
+            //seckillExecution = seckillService.executeSeckill(seckillId, phone, md5);
+            //换成存储过程调用
+            seckillExecution = seckillService.executeSeckillProcedure(seckillId, phone, md5);
             return new SeckillResult<SeckillExecution>(true, seckillExecution);
         } catch (RepeatKillException e) {
             seckillExecution = new SeckillExecution(seckillId, SeckillStateEnum.REPEAT_KILL);
@@ -96,7 +98,6 @@ public class SeckillController {
             seckillExecution = new SeckillExecution(seckillId, SeckillStateEnum.INNER_ERROR);
             return new SeckillResult<SeckillExecution>(true, seckillExecution);
         }
-
     }
 
     @RequestMapping(value = "/time/now", method = RequestMethod.GET)
