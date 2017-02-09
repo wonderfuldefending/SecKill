@@ -47,8 +47,8 @@ public class SeckillDaoTest {
          * List<Seckill> queryAll(@Param("offset")int offset, @Param("limit")int limit);
          */
 
-        List<Seckill> seckills = seckillDao.queryAll(0,100);
-        for (Seckill seckill : seckills){
+        List<Seckill> seckills = seckillDao.queryAll(0, 100);
+        for (Seckill seckill : seckills) {
             System.out.println(seckill);
         }
     }

@@ -49,6 +49,7 @@ public class SeckillServiceImpl implements SeckillService {
     @Autowired
     private RedisDao redisDao;
 
+    //md5掩值字符串，用于混淆md5
     private final String slat = "fjlsflks09432(&*(*)_)(lkjs;";
 
     public List<Seckill> getSeckillList() {
@@ -143,6 +144,7 @@ public class SeckillServiceImpl implements SeckillService {
             throw e2;
         } catch (Exception e) {
             logger.error(e.getMessage(), e);
+            //所有编译期异常转化为运行期异常
             throw new SeckillException("seckill innder error:" + e.getMessage());
         }
     }

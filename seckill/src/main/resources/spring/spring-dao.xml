@@ -12,32 +12,33 @@
 
     <!--2.数据库连接池-->
     <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
-        <!--配置连接池属性-->
+        <!-- 配置连接池属性 -->
         <property name="driverClass" value="${driver}"/>
         <property name="jdbcUrl" value="${url}"/>
         <property name="user" value="${user}"/>
         <property name="password" value="${password}"/>
 
-        <!--c3p0连接池的私有属性-->
+        <!-- c3p0连接池的私有属性 -->
         <property name="maxPoolSize" value="30"/>
         <property name="minPoolSize" value="10"/>
-        <!--关闭链接后不自动commit-->
+        <!-- 关闭链接后不自动commit -->
         <property name="autoCommitOnClose" value="false"/>
-        <!--获取链接超时时间-->
+        <!-- 获取链接超时时间 -->
         <property name="checkoutTimeout" value="1000"/>
-        <!--当获取连接失败时重试次数-->
+        <!-- 当获取连接失败时重试次数 -->
         <property name="acquireRetryAttempts" value="2"/>
     </bean>
 
-    <!--3.配置sqlSessionFactory对象-->
+    <!-- 约定大于配置 -->
+    <!-- 3.配置sqlSessionFactory对象 -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <!--注入数据库连接池-->
+        <!-- 注入数据库连接池 -->
         <property name="dataSource" ref="dataSource"/>
-        <!--配置mybatis全局配置文件：mybatis-config.xml-->
+        <!-- 配置mybatis全局配置文件：mybatis-config.xml -->
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
-        <!--扫描entity包，使用别名-->
-        <property name="typeAliasesPackage" value="org.seckill.entity"/>
-        <!--扫描sql配置文件：mapper需要的xml文件-->
+        <!-- 扫描entity包，使用别名 org.seckill.entity.Seckill -> Seckill -->
+        <property name="typeAliasesPackage" value="org.seckill.entity"/> <!-- 多个包的时候可以用；分开 org.seckill.entity；org.seckill.entity2 -->
+        <!-- 扫描sql配置文件：mapper需要的xml文件 -->
         <property name="mapperLocations" value="classpath:mapper/*.xml"/>
     </bean>
 
@@ -50,8 +51,8 @@
     </bean>
 
     <bean id="redisDao" class="org.seckill.dao.cache.RedisDao">
-      <constructor-arg index="0" value="localhost"></constructor-arg>
-      <constructor-arg index="1" value="6379"></constructor-arg>
+        <constructor-arg index="0" value="localhost"></constructor-arg>
+        <constructor-arg index="1" value="6379"></constructor-arg>
     </bean>
 
 </beans>

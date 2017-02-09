@@ -30,8 +30,7 @@ public interface SeckillService {
     Seckill getById(long seckillId);
 
     /**
-     * 描述开启时输出秒杀接口地址，
-     * 否则输出系统时间和秒杀时间
+     * 秒杀开启时输出秒杀接口地址，否则输出系统时间和秒杀时间
      * @param seckillId
      */
     Exposer exportSeckillUrl(long seckillId);
